@@ -21,6 +21,32 @@ public class utility {
 		String replacedString=template.replaceAll("<<username>>",inputString);
 		return replacedString;
 	}
+	
+	public Boolean leapyear(int  year)
+	{
+		boolean leap=false;
+		if((year%400)==0)
+		{
+			leap=true;
+		}
+		else if((year%100)==0)
+		{
+		  leap=false;
+		}
+		
+		else 	if((year%4)==0)
+			{
+				leap=true;
+			}
+		
+		else
+		{
+			leap=false;
+		}
+		return leap;
+	}
+		
+	
 
 	public Double flip(int num)
 	{
