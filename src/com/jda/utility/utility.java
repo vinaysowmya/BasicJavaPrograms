@@ -111,4 +111,32 @@ public class utility {
 		}
 	}
 
+	public int gambling(int stake,int goal,int num)
+	{
+		int bets=0,wins=0;
+		
+		for(int i=0;i<num;i++)
+		{
+			int money=stake;
+		while(money>0 && money<goal)
+		{
+			if(Math.random()<0.5)
+			{
+				
+				money++;
+			}
+			else
+			{
+				money--;
+			}
+		}
+		if(money==goal)
+		{
+			wins++;
+		}
+		}
+		return wins;
+	}
+
+
 }
