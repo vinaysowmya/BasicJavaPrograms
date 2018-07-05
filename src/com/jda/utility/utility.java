@@ -79,5 +79,15 @@ public class utility {
 			System.out.println("two power  of" +i  +" is " +poweroftwo);
 		}
 	}
+	
+	public double harmonic(int num)
+	{
+		double sum=0.0;
+		for(int i=1;i<=num;i++)
+		{
+			sum=sum+(1.0/i);
+		}
+		return sum;
+	}
 
 }
