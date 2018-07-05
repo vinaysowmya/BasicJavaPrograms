@@ -70,5 +70,14 @@ public class utility {
 		double percent=( (head*100)/num);
 		return percent;
 	}
+	
+	public void power(int num)
+	{
+		for(int i=1;i<=num;i++)
+		{
+			double poweroftwo=Math.pow(2, i);
+			System.out.println("two power  of" +i  +" is " +poweroftwo);
+		}
+	}
 
 }
