@@ -1,6 +1,8 @@
 package com.jda.utility;
 
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.Vector;
 
 public class utility {
@@ -16,6 +18,15 @@ public class utility {
 
 	public int inputInteger() {
 		return scanner.nextInt();
+	}
+	
+	public int[] inputarray(int num){
+		int []array=new int[num];
+		for(int i=0;i<num;i++)
+		{
+			array[i]=scanner.nextInt();
+		}
+		return array;
 	}
 	
 	
@@ -181,7 +192,30 @@ public class utility {
 	   
 }
 
-
-
+	public int triplets(int num,int[] array)
+	{
+		int cnt=0;
+		Set<Integer> hash=null;
+		hash=new HashSet<Integer>(num);
+		for(int i=0;i<num;i++)
+		{
+			hash.add(array[i]);
+		}
+		
+		for(int i=0;i<num-1;i++)
+		{
+			for(int j=i+1;j<num;j++)
+			{
+				int sum=-(array[i]+array[j]);
+				if(hash.contains(sum))
+				{
+					cnt++;
+					System.out.print(array[i]+" " +array[j]+" " +sum);	
+				}	
+			}
+			System.out.println();
+		}
+		return cnt;
+	}
 
 }
