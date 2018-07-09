@@ -1,6 +1,7 @@
 package com.jda.utility;
 
 import java.util.Scanner;
+import java.util.Vector;
 
 public class utility {
 	Scanner scanner;
@@ -136,6 +137,26 @@ public class utility {
 		}
 		}
 		return wins;
+	}
+	
+	public int random(int num)
+	{
+		int dstnct=0;
+		int cnt=0;
+		boolean[] exists=new boolean[num];
+		while(dstnct<num)
+		{
+			int value=(int) ( Math.random() *num);
+		//	System.out.print(value+" ");
+			cnt++;
+			if(!exists[value])
+			{
+				dstnct++;
+				exists[value]=true;
+			}
+			}
+			return cnt;
+		
 	}
 
 
