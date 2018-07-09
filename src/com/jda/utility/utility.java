@@ -217,5 +217,14 @@ public class utility {
 		}
 		return cnt;
 	}
+	
+	public double distance(int x,int y)
+	{
+		double xvalue=Math.pow(x, 2);
+		double yvalue=Math.pow(y, 2);
+		double value=xvalue+yvalue;
+		double dst=Math.sqrt(value);
+		return dst;
+	}
 
 }
