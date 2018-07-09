@@ -17,6 +17,8 @@ public class utility {
 	public int inputInteger() {
 		return scanner.nextInt();
 	}
+	
+	
 
 	public  String replaceString(String template, String inputString){
 		String replacedString=template.replaceAll("<<username>>",inputString);
@@ -155,9 +157,31 @@ public class utility {
 				exists[value]=true;
 			}
 			}
-			return cnt;
-		
+			return cnt;	
 	}
+	
+	public void matrix(int row, int column)
+	{
+		int[][] matrix=new int[row][column];
+	   for (int i = 0; i < row; i++)
+      {
+          for (int j = 0; j < column ;j++)
+          {
+              matrix[i][j] = scanner.nextInt();
+          }
+      }
+	   for (int i = 0; i < row; i++)
+      {
+          for (int j = 0; j < column ;j++)
+          {
+             System.out.print(matrix[i][j]+" ");
+          }
+          System.out.println();
+      }
+	   
+}
+
+
 
 
 }
