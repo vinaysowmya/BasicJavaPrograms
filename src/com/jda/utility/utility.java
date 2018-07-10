@@ -1,5 +1,6 @@
 package com.jda.utility;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -270,6 +271,41 @@ public class utility {
 		 double tem=(((0.4275*temp)-35.75)*(Math.pow(velocity, 0.16)));
 		 double value=(35.74+(0.6215*temp)+tem);
 		 return value;
+	 }
+	 
+	 public void anagram(String str1,String str2)
+	 {
+		 str1=str1.replaceAll(" ", "");
+		 str2=str2.replaceAll(" ", "");
+		 int size1=str1.length();
+		 int size2=str2.length();
+		 if(size1!=size2)
+		 {
+			 System.out.println("Not Anagrams");
+		 }
+		 else
+		 {
+			 char[] array1=str1.toLowerCase().toCharArray();
+			 char[] array2=str2.toLowerCase().toCharArray();
+			 Arrays.sort(array1);
+			 Arrays.sort(array2);
+			 int flag=0;
+			 for(int i=0;i<size1;i++)
+			 {
+				 if(array1[i]!=array2[i]){
+					 flag=1;
+					 break;
+				 }
+			 }
+			 if(flag==0)
+			 {
+				 System.out.println("Anagrams");
+			 }
+			 else
+			 {
+				 System.out.println("Not Anagrams");
+			 }
+		 }
 	 }
 
 }
