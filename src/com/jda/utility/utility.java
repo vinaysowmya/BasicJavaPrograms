@@ -251,5 +251,14 @@ public class utility {
             }
         }
     }
+	 public double[]  quadratic(int a,int b,int c)
+	 {
+		 double[] array=new double[2];
+		 double delta=b*b-4*a*c;
+		 array[0]=((-b+Math.sqrt(delta))/(2*a));
+		 array[1]=((-b-Math.sqrt(delta))/(2*a));
+		 return array;
+		 
+	 }
 
 }
