@@ -20,6 +20,10 @@ public class utility {
 		return scanner.nextInt();
 	}
 	
+	public double inputDouble() {
+		return scanner.nextDouble();
+	}
+	
 	public int[] inputarray(int num){
 		int []array=new int[num];
 		for(int i=0;i<num;i++)
@@ -259,6 +263,13 @@ public class utility {
 		 array[1]=((-b-Math.sqrt(delta))/(2*a));
 		 return array;
 		 
+	 }
+	 
+	 public double windchill(double temp, double velocity)
+	 {
+		 double tem=(((0.4275*temp)-35.75)*(Math.pow(velocity, 0.16)));
+		 double value=(35.74+(0.6215*temp)+tem);
+		 return value;
 	 }
 
 }
