@@ -307,5 +307,30 @@ public class utility {
 			 }
 		 }
 	 }
+	 
+	 public void prime(int strt,int end)
+	 {
+	//	 int range=end-strt;
+		 boolean flag[]=new boolean[end+1];
+		 for(int i=0;i<end;i++)
+		 {
+			 flag[i]=true;
+		 }
+		 for(int i=2;i*i<=end;i++)
+		 {
+			 if(flag[i]==true)
+			 {
+				 for(int p= i*2; p <= end; p += i)
+					 flag[p] = false;
+			 }
+		 }
+		 for(int i=2;i<=end;i++)
+			 {
+			 if(flag[i]==true)
+			 {
+				 System.out.print(i+" ");
+			 }
+			 }
+	 }
 
 }
