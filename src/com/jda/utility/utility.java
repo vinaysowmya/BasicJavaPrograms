@@ -1,5 +1,6 @@
 package com.jda.utility;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
@@ -281,7 +282,7 @@ public class utility {
 		 int size2=str2.length();
 		 if(size1!=size2)
 		 {
-			 System.out.println("Not Anagrams");
+			// System.out.println("Not Anagrams");
 		 }
 		 else
 		 {
@@ -297,18 +298,18 @@ public class utility {
 					 break;
 				 }
 			 }
-			 if(flag==0)
+			 if(flag==0 && size1>1)
 			 {
-				 System.out.println("Anagrams");
+				 System.out.println(str1+" "+str2+" "+"Anagrams");
 			 }
 			 else
 			 {
-				 System.out.println("Not Anagrams");
+				// System.out.println("Not Anagrams");
 			 }
 		 }
 	 }
 	 
-	 public void prime(int strt,int end)
+	 public ArrayList<Integer> prime(int strt,int end)
 	 {
 	//	 int range=end-strt;
 		 boolean flag[]=new boolean[end+1];
@@ -324,13 +325,35 @@ public class utility {
 					 flag[p] = false;
 			 }
 		 }
+//		 int[] array=new int[100];
+		 ArrayList<Integer> array= new ArrayList<Integer>();
+		
 		 for(int i=2;i<=end;i++)
 			 {
 			 if(flag[i]==true)
 			 {
+			//	 array[ct]=i;
+				 array.add(i);
+			
 				 System.out.print(i+" ");
 			 }
 			 }
+		 
+		 return array;
+	 }
+	 
+	 public void palindrome(String str)
+	 {
+		 String reverse="";
+		 int size=str.length();
+		 for(int i=size-1;i>=0;i--)
+		 {
+			 reverse=reverse+str.charAt(i);
+		 }
+		 if(str.equals(reverse) && size>1)
+		 {
+			 System.out.println(str+" is palindrome");
+		 }
 	 }
 
 }
