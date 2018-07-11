@@ -12,6 +12,7 @@ public class BinarySearch {
 		int flag=util.inputInteger();
 		if(flag==1)
 		{
+			  long startTime = System.currentTimeMillis();
 			System.out.println("Enter size");
 			int num=util.inputInteger();
 			System.out.println("Enter array values");
@@ -19,15 +20,16 @@ public class BinarySearch {
 			System.out.println("Enter value to check");
 			int value=util.inputInteger();
 			Arrays.sort(array);
-		/*	for(int i=0;i<num;i++)
-			{
-				System.out.println(array[i]);
-			} */
+		 
 			int pos=util.binarySearch(array,value,0,num-1);
 			System.out.println(pos);
+			  long stopTime = System.currentTimeMillis();
+			    long elapsedTime = stopTime - startTime;
+			    System.out.println(elapsedTime);
 		} 
 		if(flag==2)
 		{
+			 long startTime = System.currentTimeMillis();
 		System.out.println("Enter size");
 		int num=util.inputInteger();
 		System.out.println("Enter array values");
@@ -39,8 +41,12 @@ public class BinarySearch {
 		{
 			System.out.println(array[i]);
 		} */
+		 
 		int pos=util.binarySearch(array,value,0,num-1);
 		System.out.println(pos);
+		  long stopTime = System.currentTimeMillis();
+		    long elapsedTime = stopTime - startTime;
+		    System.out.println(elapsedTime);
 		}
 	}
 
