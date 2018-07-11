@@ -35,6 +35,25 @@ public class utility {
 		return array;
 	}
 	
+	public Integer[] inputArray(int num){
+		Integer []array=new Integer[num];
+		for(int i=0;i<num;i++)
+		{
+			array[i]=scanner.nextInt();
+		}
+		return array;
+	}
+	
+	public String[] inputArrayofStrings(int num)
+	{
+		String []array=new String[num];
+		for(int i=0;i<num;i++)
+		{
+			array[i]=scanner.next();
+		}
+		return array;
+	}
+	
 	
 
 	public  String replaceString(String template, String inputString){
@@ -353,7 +372,52 @@ public class utility {
 		 if(str.equals(reverse) && size>1)
 		 {
 			 System.out.println(str+" is palindrome");
-		 }
 	 }
-
+	 }
+	 
+	/* public int binarySearch(String[] array,int num,String value)
+	 {
+		 int low=0,high=num-1;
+		 while(low<=high)
+		 {
+			 int mid=(low+high)/2;
+			 if(value.equals(array[mid]))
+			 {
+				 return mid;
+			 }
+			 else if((value.compareTo(array[mid]))>0)
+			 {
+				 low=mid+1;
+			 }
+			 else
+			 {
+				 high=mid-1;
+			 }
+		 }
+		 return 0;
+	 } */
+	 
+	 public static <T extends Comparable<T>> int binarySearch(T[] array, T value, int low, int high) {
+			while(low<=high) {
+			    int mid = (low+high)/2;
+			   // System.out.println(mid);
+			    int cmp = array[mid].compareTo(value);
+			//   System.out.println(cmp);
+			    if (cmp < 0) 
+			    {
+			   	  return binarySearch(array, value, mid + 1, high);	
+			   	 }
+			    else  
+			   	 {if (cmp > 0) 
+			   	 {   	 
+			   	  return  binarySearch(array, value, low, mid - 1);	 
+			   	 }
+			    else
+			    {  
+			   	   return mid;
+			    }	 
+			   	 }
+			} 
+			return -1;
+		    }
 }
