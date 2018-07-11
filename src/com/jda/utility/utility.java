@@ -420,4 +420,23 @@ public class utility {
 			} 
 			return -1;
 		    }
+	
+	 public static<T extends Comparable<T>> T[] insertionsort(T[] array,int num)
+	 {
+		  int j=0;
+		  T key;
+		   for (int i = 1; i < num; i++)
+		   {
+		       key = array[i];
+		       j = i-1;
+		       while (j >= 0 && (array[j].compareTo(key))>0)
+		       {
+		           array[j+1] = array[j];
+		           j = j-1;
+		       }
+		       array[j+1] = key;
+		   }
+		   return array;
+	 }
+	 
 }
