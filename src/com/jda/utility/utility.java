@@ -439,4 +439,22 @@ public class utility {
 		   return array;
 	 }
 	 
+	 public static<T extends Comparable<T>> T[] bubblesort(T[] array,int num)
+	 {
+		 for(int i=0;i<num;i++)
+		 {
+			 for(int j=0;j<num-i-1;j++)
+			 {
+				 T temp;
+				 if((array[j].compareTo(array[j+1]))>0)
+				 {
+					 temp=array[j+1];
+					 array[j+1]=array[j];
+					 array[j]=temp;
+				 }
+			 }
+		 }
+		 return array;
+	 }
+	 
 }
