@@ -1,5 +1,12 @@
 package com.jda.utility;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -33,6 +40,26 @@ public class utility {
 			array[i]=scanner.nextInt();
 		}
 		return array;
+	}
+	
+	public String[] inputFile() throws IOException
+	{
+		 String Wordlist;
+       int Frequency;
+
+       File file = new File("file1.txt");
+     //  BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+       BufferedReader br = new BufferedReader(new FileReader("/home/bridgelabz/workspace/BasicJavaPrograms/bin/com/jda/Algorithms/File1.txt"));
+       String line = null;
+       String[] tokens = null;
+
+       while( (line = br.readLine()) != null) {
+           tokens = line.split(",");
+      //   System.out.println(line);
+       }
+     
+		return tokens;
+      
 	}
 	
 	public Integer[] inputArray(int num){
@@ -185,14 +212,16 @@ public class utility {
 		while(dstnct<num)
 		{
 			int value=(int) ( Math.random() *num);
-		//	System.out.print(value+" ");
+		System.out.print(value+" ");
 			cnt++;
 			if(!exists[value])
 			{
 				dstnct++;
+		//		System.out.println(value);
 				exists[value]=true;
 			}
 			}
+		System.out.println();
 			return cnt;	
 	}
 	
@@ -262,19 +291,24 @@ public class utility {
 	        return String.valueOf(charArray);
 	    }
 	 
-	 public void permute(String str, int l, int r)
+	 public int permute(String str, int l, int r,int ct)
     {
-        if (l == r)
+		
+        if (l == r){
             System.out.println(str);
+        ct++;
+        System.out.println(ct);
+        }
         else
         {
             for (int i = l; i <= r; i++)
             {
                 str = swap(str,l,i);
-                permute(str, l+1, r);
+                permute(str, l+1, r,ct);
                 str = swap(str,l,i);
             }
         }
+       return ct;
     }
 	 public double[]  quadratic(int a,int b,int c)
 	 {
@@ -375,27 +409,44 @@ public class utility {
 	 }
 	 }
 	 
-	/* public int binarySearch(String[] array,int num,String value)
+	public int binarySearch(int num,int count)
 	 {
-		 int low=0,high=num-1;
-		 while(low<=high)
+		 int low=0,high=num;
+		 int mid=0;
+		 
+		 while(count>1)
 		 {
-			 int mid=(low+high)/2;
-			 if(value.equals(array[mid]))
+			 mid=(low+high-1)/2;
+		//	 mid=mid-1;
+			 System.out.println("Is value between " +low +" " +mid);
+			 String str=inputString();
+			 if(str.equals("yes"))
 			 {
-				 return mid;
-			 }
-			 else if((value.compareTo(array[mid]))>0)
-			 {
-				 low=mid+1;
+				 high=mid;
 			 }
 			 else
 			 {
-				 high=mid-1;
+				 low =mid+1;
 			 }
+			 if(low==mid)
+			 {
+				 return low;
+			 }
+			 count--;
+			
 		 }
-		 return 0;
-	 } */
+		 System.out.println("Is value is " +low);
+		 String st=inputString();
+		 if(st.equals("yes"))
+		 {
+			 mid=low;
+		 }
+		 else
+		 {
+			 mid=high;
+		 }
+		 return mid;
+	 } 
 	 
 	 public static <T extends Comparable<T>> int binarySearch(T[] array, T value, int low, int high) {
 			while(low<=high) {
@@ -455,6 +506,37 @@ public class utility {
 			 }
 		 }
 		 return array;
+	 }
+	 public int fact(int num)
+	 {
+		 int f=1;
+		 for(int i=1;i<=num;i++)
+		 {
+			 f=f*i;
+		 }
+		 return f;
+	 }
+	 
+	 public int binarySearch(String[] array,int num,String value)
+	 {
+		 int low=0,high=num-1;
+		 while(low<=high)
+		 {
+			 int mid=(low+high)/2;
+			 if(value.equals(array[mid]))
+			 {
+				 return mid;
+			 }
+			 else if((value.compareTo(array[mid]))>0)
+			 {
+				 low=mid+1;
+			 }
+			 else
+			 {
+				 high=mid-1;
+			 }
+		 }
+		 return 0;
 	 }
 	 
 }

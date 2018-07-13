@@ -10,7 +10,10 @@ public class Permutations {
 		int lngth=str.length();
 		int fst=0;
 		int lst=lngth-1;
-		util.permute(str,fst,lst);
+		
+	int value=	util.permute(str,fst,lst,0);
+	//	int value=util.fact(lngth);
+		System.out.println(value);
 	}
 
 }

@@ -7,7 +7,7 @@ public class RandomNumber {
 	{
 		utility util=new utility();
 		int num=util.inputInteger();
-		int value=util.random(num);
+	//	int value=util.random(num);
 		int cnt=util.random(num);
 		System.out.println(cnt);	
 	}
