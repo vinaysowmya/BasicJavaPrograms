@@ -17,6 +17,8 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.Vector;
 
+import com.jda.utility.linkedlist.LinkedList.Node;
+
 public class utility {
 	Scanner scanner;
 
@@ -45,19 +47,19 @@ public class utility {
 		return array;
 	}
 	
-	public String[] inputFile() throws IOException
+	public static<T extends Comparable<T>> T[] inputFile() throws IOException
 	{
 		 String Wordlist;
        int Frequency;
 
-       File file = new File("file1.txt");
+     //  File file = new File("file1.txt");
      //  BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
        BufferedReader br = new BufferedReader(new FileReader("C:/practise/BasicJavaPrograms/src/com/jda/Algorithms/File1.txt"));
        String line = null;
-       String[] tokens = null;
+       T[] tokens = null;
 
        while( (line = br.readLine()) != null) {
-           tokens = line.split(",");
+           tokens = (T[]) line.split(",");
       //   System.out.println(line);
        }
      
@@ -65,13 +67,13 @@ public class utility {
       
 	}
 	
-	public void inputToFile(LinkedList<String> rslt) throws IOException
+	public static<T extends Comparable<T>> void inputToFile(LinkedList<T> rslt) throws IOException
 	{
 		 BufferedWriter writer = new BufferedWriter(new FileWriter("C:/practise/BasicJavaPrograms/src/com/jda/Algorithms/File2.txt"));
 		    int size=rslt.size();
 		    for(int i=0;i<size;i++)
 		    {
-		    	String str=rslt.get(i);
+		    	T str=rslt.get(i);
 		         writer.write(str+" ");
 		    }
 		     
@@ -662,14 +664,91 @@ public class utility {
 		 return true;
 		
 	 }
-	 
-	 public LinkedList<String> unOrderedList(String[] array1,String str)
+	 public void merge(String[] array,int l,int m,int r)
 	 {
-		 LinkedList<String> array=new LinkedList<String>();
+		 int n1 = m - l + 1;
+	        int n2 = r - m;
+	        String Left[] = new String [n1];
+	        String Right[] = new String [n2];
+	        for (int i=0; i<n1; ++i)
+	        {
+	            Left[i] = array[l + i];
+	        }
+	        for (int j=0; j<n2; ++j)
+	        {
+	            Right[j] = array[m + 1+ j];
+	        }
+	        int i = 0, j = 0;
+	        int k = l;
+	        while (i < n1 && j < n2)
+	        {
+	        	int cmp=Left[i].compareTo(Right[j]);
+	            if (cmp<=0)
+	            {
+	                array[k] = Left[i];
+	                i++;
+	            }
+	            else
+	            {
+	                array[k] = Right[j];
+	                j++;
+	            }
+	            k++;
+	        }
+	 
+	        while (i < n1)
+	        {
+	            array[k] = Left[i];
+	            i++;
+	            k++;
+	        }
+	 
+	        while (j < n2)
+	        {
+	            array[k] = Right[j];
+	            j++;
+	            k++;
+	        }
+	    }
+	 
+	 
+	 public String[] mergesort(String[] array, int l, int r)
+	    {
+	        if (l < r)
+	        {
+	            int m = (l+r)/2;
+	            mergesort(array, l, m);
+	            mergesort(array , m+1, r);
+	            merge(array, l, m, r);
+	        }
+	        return array;
+	    }
+	 
+/*	 public class linkedlist {
+			class LinkedList
+			{
+			    Node head;
+			    class Node
+			    {
+			        int data;
+			        Node next;
+			        <T> Node(T new_data) {data = (int) new_data; next = null; }
+			    }
+			 public void adds(int new_data)
+			 {
+			     Node new_node = new Node(new_data);
+			     new_node.next = head;
+			     head = new_node;
+			 }
+			}
+	 
+	 public void unOrderedList(String[] array1,String str)
+	 {
+		 LinkedList array=new LinkedList();
 		 int size=array1.length;
 		 for(int i=0;i<size;i++)
 		 {
-			 array.add(array1[i]);
+			 array.adds(array1[i]);
 		 }
 		 boolean exists=array.contains(str);
 		 if(exists)
@@ -683,5 +762,49 @@ public class utility {
 		 return array;
 		 
 	 }
+	 
+	 public LinkedList<Integer> orderedList(String[] array1,int val)
+	 {
+		 LinkedList<Integer> array=new LinkedList<Integer>();
+		 int size=array1.length;
+		 for(int i=0;i<size;i++)
+		 {
+			 array.add(Integer.parseInt(array1[i]) );
+		 }
+		 boolean exists=array.contains(val);
+		 if(exists)
+		 {
+			 if (array.get(0) == val) {
+		            array.remove(0);
+		        } else if (array.get(size- 1)== val) {
+		            array.remove(size-1);
+		        } else {
+		            int i = 0;
+		            while (array.get(i)!=val) {
+		                i++;
+		            }
+		            array.remove(i);
+		        }
+		 }
+		 else
+		 {
+			 if (size == 0) {
+		            array.add(val);
+		        } else if (array.get(0) > val) {
+		            array.add(0, val);
+		        } else if (array.get(size- 1) < val) {
+		            array.add(size, val);
+		        } else {
+		            int i = 0;
+		            while (array.get(i) < val) {
+		                i++;
+		            }
+		            array.add(i, val);
+		        }
+
+		    }
+		 return array;
+
+		 } */
 	 
 }
