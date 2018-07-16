@@ -1,5 +1,7 @@
 package com.jda.functionalPrograms;
 
+import java.util.ArrayList;
+
 import com.jda.utility.utility;
 
 public class Permutations {
@@ -10,9 +12,10 @@ public class Permutations {
 		int lngth=str.length();
 		int fst=0;
 		int lst=lngth-1;
+		ArrayList<String> array=new ArrayList<String>();
 		
-	int value=	util.permute(str,fst,lst,0);
-	//	int value=util.fact(lngth);
+	 ArrayList<String> array1=util.permute(str,fst,lst,array);
+		int value=array1.size();
 		System.out.println(value);
 	}
 

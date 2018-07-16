@@ -291,24 +291,25 @@ public class utility {
 	        return String.valueOf(charArray);
 	    }
 	 
-	 public int permute(String str, int l, int r,int ct)
+	 public ArrayList<String> permute(String str, int l, int r, ArrayList<String> array )
     {
 		
         if (l == r){
             System.out.println(str);
-        ct++;
-        System.out.println(ct);
+           array.add(str);
+       
         }
         else
         {
             for (int i = l; i <= r; i++)
             {
                 str = swap(str,l,i);
-                permute(str, l+1, r,ct);
+                permute(str, l+1, r, array);
                 str = swap(str,l,i);
             }
         }
-       return ct;
+        return array;
+     
     }
 	 public double[]  quadratic(int a,int b,int c)
 	 {
@@ -537,6 +538,113 @@ public class utility {
 			 }
 		 }
 		 return 0;
+	 }
+	 
+	 public int day(int date,int month,int year)
+	 {
+		int y1=year-(14-month)/12;
+		int x=y1+y1/4-y1/100+y1/400;
+		int m1=month+(12*((14-month)/12))-2;
+		int d1=(date+x+((31*m1)/12))%7;
+		return d1;
+	 }
+	 
+	 public int temperature(String str,int temp)
+	 {
+		 if(str.equals("celsius"))
+		 {
+			 int f=(temp*(9/5))+32;
+			 return f;
+		 }
+		 else
+		 {
+			 int c=((temp-32)*(5/9));
+			 return c;
+		 }
+	 }
+	 
+	 public int change(int[] array,int amount,int size)
+	 {
+		 int rslt[] = new int[amount + 1];
+
+			rslt[0] = 0;
+
+			for (int i = 1; i <= amount; i++)
+				rslt[i] = Integer.MAX_VALUE;
+
+			for (int i = 1; i <= amount; i++) {
+
+				for (int j = 0; j < size; j++)
+					if (array[j] <= i) {
+						int temp = rslt[i - array[j]];
+						if (temp != Integer.MAX_VALUE && temp + 1 < rslt[i])
+							rslt[i] = temp + 1;
+
+					}
+
+			}
+			return rslt[amount];
+	 }
+	 
+	 public double payment(double p,double y,double r)
+	 {
+		 double n=12*y;
+		 double R=(r/(12*100));
+		 double v=(Math.pow((1+R),-n));
+		 System.out.println(R);
+		 double value=((p*R)/(1-v));
+		 return value;
+	 }
+	 
+	 public double sqrt(double num)
+	 {
+		 double temp=num;
+		 double epsilon=1e-15;
+		 while((Math.abs(temp-(num/temp)))>(epsilon*temp))
+		 {
+		 temp=((num/temp)+temp)/2;
+		 }
+		return temp;		 
+	 }
+	 
+	 public ArrayList<Integer> binary(int num)
+	 {
+		 ArrayList<Integer> array= new ArrayList<Integer>();
+		 while(num>0)
+		 {
+			 int tem=num%2;
+			 array.add(tem);
+			 num=num/2;
+		 }
+		 return array;
+	 }
+	 
+	 public int nibble(int num)
+	 {
+		 String binary=Integer.toBinaryString(num);
+		 int size=binary.length();
+		  int[] array = new int[size];
+		  /*  for (int i=0; i <size; i++) {
+		    	array[i]=Integer.parseInt(binary[i]);
+		    } */
+		 int  value= ( (num & 0x0F)<<4 | (num & 0xF0)>>4 );
+		    return value;
+		    
+	 }
+	 
+	 public boolean powOfTwo(int rslt)
+	 {
+		 int rem=0;
+		 while(rslt>2)
+		 {
+			if(rslt%2!=0)
+			{
+				return false;
+			}
+			rslt=rslt/2;
+		 }
+		 return true;
+		
 	 }
 	 
 }
