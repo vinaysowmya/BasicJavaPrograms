@@ -1,15 +1,18 @@
 package com.jda.utility;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.Vector;
@@ -49,7 +52,7 @@ public class utility {
 
        File file = new File("file1.txt");
      //  BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
-       BufferedReader br = new BufferedReader(new FileReader("/home/bridgelabz/workspace/BasicJavaPrograms/bin/com/jda/Algorithms/File1.txt"));
+       BufferedReader br = new BufferedReader(new FileReader("C:/practise/BasicJavaPrograms/src/com/jda/Algorithms/File1.txt"));
        String line = null;
        String[] tokens = null;
 
@@ -60,6 +63,19 @@ public class utility {
      
 		return tokens;
       
+	}
+	
+	public void inputToFile(LinkedList<String> rslt) throws IOException
+	{
+		 BufferedWriter writer = new BufferedWriter(new FileWriter("C:/practise/BasicJavaPrograms/src/com/jda/Algorithms/File2.txt"));
+		    int size=rslt.size();
+		    for(int i=0;i<size;i++)
+		    {
+		    	String str=rslt.get(i);
+		         writer.write(str+" ");
+		    }
+		     
+		    writer.close();
 	}
 	
 	public Integer[] inputArray(int num){
@@ -645,6 +661,27 @@ public class utility {
 		 }
 		 return true;
 		
+	 }
+	 
+	 public LinkedList<String> unOrderedList(String[] array1,String str)
+	 {
+		 LinkedList<String> array=new LinkedList<String>();
+		 int size=array1.length;
+		 for(int i=0;i<size;i++)
+		 {
+			 array.add(array1[i]);
+		 }
+		 boolean exists=array.contains(str);
+		 if(exists)
+		 {
+			 array.remove(str);
+		 }
+		 else
+		 {
+			 array.add(str);
+		 }
+		 return array;
+		 
 	 }
 	 
 }
