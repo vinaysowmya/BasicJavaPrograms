@@ -17,7 +17,9 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.Vector;
 
-import com.jda.utility.linkedlist.LinkedList.Node;
+import com.jda.utility.linkedlist.Node;
+
+
 
 public class utility {
 	Scanner scanner;
@@ -67,18 +69,7 @@ public class utility {
       
 	}
 	
-	public static<T extends Comparable<T>> void inputToFile(LinkedList<T> rslt) throws IOException
-	{
-		 BufferedWriter writer = new BufferedWriter(new FileWriter("C:/practise/BasicJavaPrograms/src/com/jda/Algorithms/File2.txt"));
-		    int size=rslt.size();
-		    for(int i=0;i<size;i++)
-		    {
-		    	T str=rslt.get(i);
-		         writer.write(str+" ");
-		    }
-		     
-		    writer.close();
-	}
+	
 	
 	public Integer[] inputArray(int num){
 		Integer []array=new Integer[num];
@@ -724,46 +715,10 @@ public class utility {
 	        return array;
 	    }
 	 
-/*	 public class linkedlist {
-			class LinkedList
-			{
-			    Node head;
-			    class Node
-			    {
-			        int data;
-			        Node next;
-			        <T> Node(T new_data) {data = (int) new_data; next = null; }
-			    }
-			 public void adds(int new_data)
-			 {
-			     Node new_node = new Node(new_data);
-			     new_node.next = head;
-			     head = new_node;
-			 }
-			}
+ 
+ 
 	 
-	 public void unOrderedList(String[] array1,String str)
-	 {
-		 LinkedList array=new LinkedList();
-		 int size=array1.length;
-		 for(int i=0;i<size;i++)
-		 {
-			 array.adds(array1[i]);
-		 }
-		 boolean exists=array.contains(str);
-		 if(exists)
-		 {
-			 array.remove(str);
-		 }
-		 else
-		 {
-			 array.add(str);
-		 }
-		 return array;
-		 
-	 }
-	 
-	 public LinkedList<Integer> orderedList(String[] array1,int val)
+/*	 public LinkedList<Integer> orderedList(String[] array1,int val)
 	 {
 		 LinkedList<Integer> array=new LinkedList<Integer>();
 		 int size=array1.length;
