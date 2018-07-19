@@ -25,6 +25,7 @@ public class UnOrderedList {
 		System.out.println();
 		int num=array.size();
 	   boolean flag=array.search(val);
+	   System.out.println(flag);
 	   if(flag)
 	   {
 		   array.removeElements(val);

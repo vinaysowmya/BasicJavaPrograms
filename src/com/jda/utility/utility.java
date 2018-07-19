@@ -558,16 +558,16 @@ public class utility {
 		return d1;
 	 }
 	 
-	 public int temperature(String str,int temp)
+	 public double temperature(String str,int temp)
 	 {
 		 if(str.equals("celsius"))
 		 {
-			 int f=(temp*(9/5))+32;
+			 double f=(temp*(9.0/5))+32;
 			 return f;
 		 }
 		 else
 		 {
-			 int c=((temp-32)*(5/9));
+			 double c=((temp-32)*(5.0/9));
 			 return c;
 		 }
 	 }
@@ -575,11 +575,15 @@ public class utility {
 	 public int change(int[] array,int amount,int size)
 	 {
 		 int rslt[] = new int[amount + 1];
+		 int[] arr=new int[amount+1]; 
 
 			rslt[0] = 0;
 
 			for (int i = 1; i <= amount; i++)
+			{
 				rslt[i] = Integer.MAX_VALUE;
+				arr[i]=0;
+			}
 
 			for (int i = 1; i <= amount; i++) {
 
@@ -587,12 +591,18 @@ public class utility {
 					if (array[j] <= i) {
 						int temp = rslt[i - array[j]];
 						if (temp != Integer.MAX_VALUE && temp + 1 < rslt[i])
+						{
+							arr[i]=j;
 							rslt[i] = temp + 1;
+						}
 
 					}
 
 			}
+		//	System.out.println(rslt[amount]);
+			
 			return rslt[amount];
+			
 	 }
 	 
 	 public double payment(double p,double y,double r)
@@ -628,20 +638,41 @@ public class utility {
 		 return array;
 	 }
 	 
-	 public int nibble(int num)
+	 public double nibble(int num)
 	 {
 		 String binary=Integer.toBinaryString(num);
 		 int size=binary.length();
-		  int[] array = new int[size];
-		  /*  for (int i=0; i <size; i++) {
-		    	array[i]=Integer.parseInt(binary[i]);
-		    } */
-		 int  value= ( (num & 0x0F)<<4 | (num & 0xF0)>>4 );
-		    return value;
-		    
+		 System.out.println(binary);
+		 int[] array = new int[8];
+		
+		 for(int i=0;i<4;i++){
+		    	array[i]=((binary.charAt(4+i))-48);
+		    }
+		 int rem=8-size;
+			 for(int i=0;i<rem;i++)
+			 {
+				 array[4+i]=0;
+			 }
+		    for (int i=4+rem; i<(8-rem); i++) {
+		    	array[i]=((binary.charAt(i-4))-48);
+		    }
+		   
+		   
+		    for(int i=0;i<size;i++){
+		    	System.out.print(array[i]+" ");
+		    }
+		   
+		    double decimal = 0;  
+		    for(int i=0;i<size;i++){
+		    	if(array[i]==1)
+		    	{
+		    	decimal=decimal+Math.pow(2, i);
+		    	}
+		    }
+		    return decimal;
 	 }
 	 
-	 public boolean powOfTwo(int rslt)
+	 public boolean powOfTwo(double rslt)
 	 {
 		 int rem=0;
 		 while(rslt>2)
