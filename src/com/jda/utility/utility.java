@@ -337,7 +337,7 @@ public class utility {
 		 return value;
 	 }
 	 
-	 public void anagram(String str1,String str2)
+	 public boolean anagram(String str1,String str2)
 	 {
 		 str1=str1.replaceAll(" ", "");
 		 str2=str2.replaceAll(" ", "");
@@ -345,6 +345,7 @@ public class utility {
 		 int size2=str2.length();
 		 if(size1!=size2)
 		 {
+			 return false;
 			// System.out.println("Not Anagrams");
 		 }
 		 else
@@ -363,10 +364,13 @@ public class utility {
 			 }
 			 if(flag==0 && size1>1)
 			 {
-				 System.out.println(str1+" "+str2+" "+"Anagrams");
+				// System.out.println(str1+" "+str2+" "+"Anagrams");
+				 return true;
+				 
 			 }
 			 else
 			 {
+				 return false;
 				// System.out.println("Not Anagrams");
 			 }
 		 }
@@ -398,7 +402,7 @@ public class utility {
 			//	 array[ct]=i;
 				 array.add(i);
 			
-				 System.out.print(i+" ");
+				// System.out.print(i+" ");
 			 }
 			 }
 		 
@@ -745,7 +749,17 @@ public class utility {
 	        return array;
 	    }
 	 
- 
+	 public static long Cat(int n)
+		{long result=0;
+		if(n<=1)
+			return 1;
+		for(int i=0;i<n;i++)
+		{
+		result+=Cat(i)*Cat(n-1-i);
+			
+		}
+		return result;
+		}
  
 	 
 /*	 public LinkedList<Integer> orderedList(String[] array1,int val)

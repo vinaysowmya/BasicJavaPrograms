@@ -2,11 +2,12 @@ package com.jda.utility;
 
 public class Que {
 	 Que que;
+	 int size=0;
 	public static class Node
 	{
 	 public int key;
 	 Node next;
-	 int data;
+	 public int data;
 	 public Node(int k,int d) {
 	     key = k;
 	     data=d;
@@ -21,8 +22,9 @@ public class Que {
  } 
 
 
- void enqueue(int key,int data)
+ public void enqueue(int key,int data)
  {
+	 size++;
      Node temp = new Node(key, data);
      if (rear == null)
      {
@@ -35,7 +37,7 @@ public class Que {
      rear = temp;
      }
  }
- Node dequeue()
+ public Node dequeue()
  {
      if (front == null)
      {
@@ -96,6 +98,10 @@ public class Que {
 	return cash;
 	 
 		
+ }
+ public int size()
+ {
+	 return size;
  }
 	
 

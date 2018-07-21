@@ -2,8 +2,8 @@ package com.jda.utility;
 
 public class Stack <T extends Comparable<T>>{
 	    static final int MAX = 1000;
-	    int top;
-	    char a[] = new char[MAX]; 
+	    static int top;
+	    static char a[] = new char[MAX]; 
 	 
 	    boolean isEmpty()
 	    {
@@ -21,20 +21,20 @@ public class Stack <T extends Comparable<T>>{
 	        top = -1;
 	    }
 	 
-	    boolean push(T x)
+	    static void push(char c)
 	    {
 	        if (top >= (MAX-1))
 	        {
 	            System.out.println("Stack Overflow");
-	            return false;
+	           // return false;
 	        }
 	        else
 	        {
-	            a[++top] = (char) x;
-	            return true;
+	            a[++top] = (char) c;
+	           // return true;
 	        }
 	    }
-	 
+	  
 	    char pop()
 	    {
 	        if (top < 0)
@@ -97,5 +97,10 @@ public class Stack <T extends Comparable<T>>{
                 } 
         		
         	}
+		 public int getSize()
+	    {
+	     //   return st.size();
+			 return top;
+	    }   
         
 }

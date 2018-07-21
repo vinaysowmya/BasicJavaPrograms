@@ -14,7 +14,7 @@ public class NumberInSlot {
           public static void main(String args[]) throws IOException
           {
         	  utility util=new utility();
-        	  linkedlist<Integer> array=new linkedlist<Integer>();
+        	  
         	  HashMap<Integer,linkedlist<Integer>> slot = new HashMap<>();
         		for (int i = 0; i < 11; i++) {
         		slot.put(i, null);
