@@ -642,11 +642,11 @@ public class utility {
 	 {
 		 String binary=Integer.toBinaryString(num);
 		 int size=binary.length();
-		 System.out.println(binary);
+		// System.out.println(binary);
 		 int[] array = new int[8];
 		
 		 for(int i=0;i<4;i++){
-		    	array[i]=((binary.charAt(4+i))-48);
+		    	array[i]=((binary.charAt(3+i))-48);
 		    }
 		 int rem=8-size;
 			 for(int i=0;i<rem;i++)
@@ -654,19 +654,18 @@ public class utility {
 				 array[4+i]=0;
 			 }
 		    for (int i=4+rem; i<(8-rem); i++) {
-		    	array[i]=((binary.charAt(i-4))-48);
+		    	array[i]=((binary.charAt(i-4-rem))-48);
 		    }
 		   
 		   
-		    for(int i=0;i<size;i++){
-		    	System.out.print(array[i]+" ");
-		    }
+		  
 		   
 		    double decimal = 0;  
-		    for(int i=0;i<size;i++){
+		    for(int i=7;i>=0;i--){
 		    	if(array[i]==1)
 		    	{
-		    	decimal=decimal+Math.pow(2, i);
+		    	decimal=decimal+Math.pow(2, (7-i));
+		    	//System.out.println(decimal);
 		    	}
 		    }
 		    return decimal;
