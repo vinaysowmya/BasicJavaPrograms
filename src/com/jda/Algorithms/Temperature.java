@@ -10,7 +10,7 @@ public class Temperature {
 		String str=util.inputString();
 		System.out.println("Enter temperature");
 		int temp=util.inputInteger();
-		int value=util.temperature(str,temp);
+		double value=util.temperature(str,temp);
 		System.out.println(value);
 		
 	}

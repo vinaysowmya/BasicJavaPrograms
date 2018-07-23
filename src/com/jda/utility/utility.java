@@ -17,7 +17,9 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.Vector;
 
-import com.jda.utility.linkedlist.LinkedList.Node;
+import com.jda.utility.linkedlist.Node;
+
+
 
 public class utility {
 	Scanner scanner;
@@ -67,18 +69,7 @@ public class utility {
       
 	}
 	
-	public static<T extends Comparable<T>> void inputToFile(LinkedList<T> rslt) throws IOException
-	{
-		 BufferedWriter writer = new BufferedWriter(new FileWriter("C:/practise/BasicJavaPrograms/src/com/jda/Algorithms/File2.txt"));
-		    int size=rslt.size();
-		    for(int i=0;i<size;i++)
-		    {
-		    	T str=rslt.get(i);
-		         writer.write(str+" ");
-		    }
-		     
-		    writer.close();
-	}
+	
 	
 	public Integer[] inputArray(int num){
 		Integer []array=new Integer[num];
@@ -346,7 +337,7 @@ public class utility {
 		 return value;
 	 }
 	 
-	 public void anagram(String str1,String str2)
+	 public boolean anagram(String str1,String str2)
 	 {
 		 str1=str1.replaceAll(" ", "");
 		 str2=str2.replaceAll(" ", "");
@@ -354,6 +345,7 @@ public class utility {
 		 int size2=str2.length();
 		 if(size1!=size2)
 		 {
+			 return false;
 			// System.out.println("Not Anagrams");
 		 }
 		 else
@@ -372,10 +364,13 @@ public class utility {
 			 }
 			 if(flag==0 && size1>1)
 			 {
-				 System.out.println(str1+" "+str2+" "+"Anagrams");
+				// System.out.println(str1+" "+str2+" "+"Anagrams");
+				 return true;
+				 
 			 }
 			 else
 			 {
+				 return false;
 				// System.out.println("Not Anagrams");
 			 }
 		 }
@@ -407,7 +402,7 @@ public class utility {
 			//	 array[ct]=i;
 				 array.add(i);
 			
-				 System.out.print(i+" ");
+				// System.out.print(i+" ");
 			 }
 			 }
 		 
@@ -567,16 +562,16 @@ public class utility {
 		return d1;
 	 }
 	 
-	 public int temperature(String str,int temp)
+	 public double temperature(String str,int temp)
 	 {
 		 if(str.equals("celsius"))
 		 {
-			 int f=(temp*(9/5))+32;
+			 double f=(temp*(9.0/5))+32;
 			 return f;
 		 }
 		 else
 		 {
-			 int c=((temp-32)*(5/9));
+			 double c=((temp-32)*(5.0/9));
 			 return c;
 		 }
 	 }
@@ -584,11 +579,15 @@ public class utility {
 	 public int change(int[] array,int amount,int size)
 	 {
 		 int rslt[] = new int[amount + 1];
+		 int[] arr=new int[amount+1]; 
 
 			rslt[0] = 0;
 
 			for (int i = 1; i <= amount; i++)
+			{
 				rslt[i] = Integer.MAX_VALUE;
+				arr[i]=0;
+			}
 
 			for (int i = 1; i <= amount; i++) {
 
@@ -596,12 +595,18 @@ public class utility {
 					if (array[j] <= i) {
 						int temp = rslt[i - array[j]];
 						if (temp != Integer.MAX_VALUE && temp + 1 < rslt[i])
+						{
+							arr[i]=j;
 							rslt[i] = temp + 1;
+						}
 
 					}
 
 			}
+		//	System.out.println(rslt[amount]);
+			
 			return rslt[amount];
+			
 	 }
 	 
 	 public double payment(double p,double y,double r)
@@ -637,20 +642,40 @@ public class utility {
 		 return array;
 	 }
 	 
-	 public int nibble(int num)
+	 public double nibble(int num)
 	 {
 		 String binary=Integer.toBinaryString(num);
 		 int size=binary.length();
-		  int[] array = new int[size];
-		  /*  for (int i=0; i <size; i++) {
-		    	array[i]=Integer.parseInt(binary[i]);
-		    } */
-		 int  value= ( (num & 0x0F)<<4 | (num & 0xF0)>>4 );
-		    return value;
-		    
+		// System.out.println(binary);
+		 int[] array = new int[8];
+		
+		 for(int i=0;i<4;i++){
+		    	array[i]=((binary.charAt(3+i))-48);
+		    }
+		 int rem=8-size;
+			 for(int i=0;i<rem;i++)
+			 {
+				 array[4+i]=0;
+			 }
+		    for (int i=4+rem; i<(8-rem); i++) {
+		    	array[i]=((binary.charAt(i-4-rem))-48);
+		    }
+		   
+		   
+		  
+		   
+		    double decimal = 0;  
+		    for(int i=7;i>=0;i--){
+		    	if(array[i]==1)
+		    	{
+		    	decimal=decimal+Math.pow(2, (7-i));
+		    	//System.out.println(decimal);
+		    	}
+		    }
+		    return decimal;
 	 }
 	 
-	 public boolean powOfTwo(int rslt)
+	 public boolean powOfTwo(double rslt)
 	 {
 		 int rem=0;
 		 while(rslt>2)
@@ -724,46 +749,20 @@ public class utility {
 	        return array;
 	    }
 	 
-/*	 public class linkedlist {
-			class LinkedList
-			{
-			    Node head;
-			    class Node
-			    {
-			        int data;
-			        Node next;
-			        <T> Node(T new_data) {data = (int) new_data; next = null; }
-			    }
-			 public void adds(int new_data)
-			 {
-			     Node new_node = new Node(new_data);
-			     new_node.next = head;
-			     head = new_node;
-			 }
-			}
+	 public static long Cat(int n)
+		{long result=0;
+		if(n<=1)
+			return 1;
+		for(int i=0;i<n;i++)
+		{
+		result+=Cat(i)*Cat(n-1-i);
+			
+		}
+		return result;
+		}
+ 
 	 
-	 public void unOrderedList(String[] array1,String str)
-	 {
-		 LinkedList array=new LinkedList();
-		 int size=array1.length;
-		 for(int i=0;i<size;i++)
-		 {
-			 array.adds(array1[i]);
-		 }
-		 boolean exists=array.contains(str);
-		 if(exists)
-		 {
-			 array.remove(str);
-		 }
-		 else
-		 {
-			 array.add(str);
-		 }
-		 return array;
-		 
-	 }
-	 
-	 public LinkedList<Integer> orderedList(String[] array1,int val)
+/*	 public LinkedList<Integer> orderedList(String[] array1,int val)
 	 {
 		 LinkedList<Integer> array=new LinkedList<Integer>();
 		 int size=array1.length;

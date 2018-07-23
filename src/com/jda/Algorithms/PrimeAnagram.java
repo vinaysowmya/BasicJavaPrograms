@@ -8,7 +8,9 @@ public class PrimeAnagram {
 	public static void main(String args[])
 	{
 		utility util=new utility();
+		System.out.println("Start");
 		int strt=util.inputInteger();
+		System.out.println("end");
 		int end=util.inputInteger();
 		ArrayList<Integer> array=util.prime(strt,end);
 		int size=array.size();
