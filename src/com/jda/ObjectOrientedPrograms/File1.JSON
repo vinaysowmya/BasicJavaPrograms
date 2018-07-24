@@ -1,0 +1,32 @@
+{
+   "NAME": "So",
+   
+    "Rice":[
+	{
+        "Name": "Brown Rice",
+        "Weight": "2",
+        "pricePerKg": "5"
+		},
+		 {
+	
+        "Name": "Green Rice",
+        "Weight": "3",
+        "pricePerKg": "4"
+		}
+    ],
+	 "Pulses": [
+	 {
+        "Name": "Black Gram",
+        "Weight": "3",
+        "pricePerKg": "10"
+		}
+    ],
+	 "Wheat": [
+	 {
+        "Name": "Wheat",
+        "Weight": "5",
+        "pricePerKg": "15"
+		}
+    ]
+}
+

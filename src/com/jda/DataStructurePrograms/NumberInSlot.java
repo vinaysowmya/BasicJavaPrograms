@@ -71,11 +71,10 @@ public class NumberInSlot {
   		   {
   			   lst.sortedInsert(val);
   			 //  array.printList();
-  			  lst.inputToFile();
+  			//  lst.inputToFile();
   			 slot.put(key, lst);
   			   
   		   }
-  		
   		 for (int i = 0; i <11; i++) {
          	if(slot.get(i) != null) {
          	System.out.println("slot->" + i+" ");
