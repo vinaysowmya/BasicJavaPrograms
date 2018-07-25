@@ -27,6 +27,7 @@ public class StockReport {
 			Iterator itr11 = Stock.iterator();
 			int totalPrice =0;
 			int price =0;
+			
 			while (itr11.hasNext()) 
 		     {
 		         itr1 = ((Map) itr11.next()).entrySet().iterator();

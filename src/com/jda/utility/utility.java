@@ -12,7 +12,9 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.Vector;
@@ -760,6 +762,48 @@ public class utility {
 		}
 		return result;
 		}
+	 
+	 public int fun(Iterator itr11,Iterator<Map.Entry> itr1,int amnt,int price,String wt)
+	 {
+			while (itr11.hasNext()) 
+		     {
+		         itr1 = ((Map) itr11.next()).entrySet().iterator();
+		// Map Rice = ((Map)jsonObject.get("Rice"));
+        
+	        // iterating address Map
+	      //  Iterator<Map.Entry> itr1 = Rice.entrySet().iterator();
+		         int a=0;
+	        while (itr1.hasNext()) {
+	            Map.Entry pair = itr1.next();
+	            if((pair.getKey()).equals("Weight"))
+	            {
+	            	wt=(String) pair.getValue();
+	            	// System.out.println(wt);
+	            }
+	           
+	            if((pair.getKey()).equals("pricePerKg"))
+	            {
+	            	String val=(String) pair.getValue();
+	            //	System.out.println(val);
+	            
+	            	//System.out.println(w);
+	            	 a=Integer.parseInt(val);
+	            	//System.out.println(a);
+	            	
+	            }
+	        	int w=Integer.parseInt(wt);
+	        	int b=w*a;
+        //   	System.out.println(b);
+           
+           	amnt=amnt+b;
+         	
+	            System.out.println(pair.getKey() + " : " + pair.getValue());
+	           
+	        }
+	        System.out.println("Amount till now " +amnt);
+		     }
+			return amnt;
+	 }
  
 	 
 /*	 public LinkedList<Integer> orderedList(String[] array1,int val)

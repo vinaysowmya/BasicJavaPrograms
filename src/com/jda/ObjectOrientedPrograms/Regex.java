@@ -30,18 +30,18 @@ public class Regex {
 	        utility util=new utility();
 	        
 	        System.out.println("Enter your name");
-	        Pattern pattern = Pattern.compile("<<name>>");
+	        Pattern pattern = Pattern.compile("<<[a-zA-Z]{4}>>");
 	        Matcher mtch = pattern.matcher(str);
 	        String name=util.inputString();
 	       String rslt= mtch.replaceAll(name);
 	       
-	       Pattern pattern1 = Pattern.compile("<<full name>>");
+	       Pattern pattern1 = Pattern.compile("<<[a-z A-Z]{9}>>");
 	        Matcher mtch1 = pattern1.matcher(rslt);
 	       System.out.println("Enter your  full name");
 	        String fullname=util.inputString();
 	       String rslt1= mtch1.replaceAll(fullname);
 	       
-	       Pattern pattern2 = Pattern.compile("91xxxxxxxxxx");
+	       Pattern pattern2 = Pattern.compile("[x]{10}");
 	        Matcher mtch2 = pattern2.matcher(rslt1);
 	       System.out.println("Enter your mobile number");
 	        String number=util.inputString();
