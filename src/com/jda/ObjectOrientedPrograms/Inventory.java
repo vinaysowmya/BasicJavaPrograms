@@ -1,6 +1,7 @@
 package com.jda.ObjectOrientedPrograms;
 
 import java.awt.List;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -11,6 +12,9 @@ import java.util.Map;
 
 import javax.tools.JavaFileObject;
 
+import org.codehaus.jackson.impl.DefaultPrettyPrinter;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.ObjectWriter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONStreamAware;
@@ -184,8 +188,11 @@ public class Inventory {
 			//	file.write(jsonObject1.toJSONString());
 		//file.write((String) obj);
 			//	jsonObject1.writeJSONString(file);
-				((JSONObject) obj).writeJSONString(file);
-
+		//	jsonObject1.writeJSONString(file);
+			ObjectMapper mapper = new ObjectMapper();
+			ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
+			// variable.add(3,inventory);
+			writer.writeValue(new File("C:/practise/BasicJavaPrograms/src/com/jda/ObjectOrientedPrograms/file2.txt"), jsonObject1);
 				file.flush();
 				file.close();
 				//System.out.println("Successfully Copied JSON Object to File...");
