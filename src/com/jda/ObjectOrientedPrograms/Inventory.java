@@ -172,8 +172,10 @@ public class Inventory {
 		//	jsonObject2.put("No of Shares", quantity1);
 			//Stock.add(position, jsonObject2);
 			Stock.add(position, d);
+			
 			size=Stock.size();
 			}
+		
 			System.out.println(size);
 	/*	for(int i=0;i<size;i++)
 		{
@@ -181,6 +183,7 @@ public class Inventory {
 			
 		} */
 		JSONObject jsonObject1 = (JSONObject) obj;
+		
 		
 		jsonObject1.put("STOCK", Stock);
 	

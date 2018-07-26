@@ -4,19 +4,19 @@
  {
         "Customer Name": "X",
         "Mobile no": "2",
-        "Amount "5"
+        "Amount": "50"
 		},
 		 {
 	
         "Customer Name": "Y",
         "Mobile no": "3",
-        "Amount": "4"
+        "Amount": "40"
 		},
 		 {
 	
         "Customer Name": "Z",
         "Mobile no": "5",
-        "Amount": "8"
+        "Amount": "80"
 		}
     ]
 	}
