@@ -1,22 +1,15 @@
 {
- "CUSTOMER":
- [
- {
-        "Customer Name": "X",
-        "Mobile no": "2",
-        "Amount": "50"
-		},
-		 {
-	
-        "Customer Name": "Y",
-        "Mobile no": "3",
-        "Amount": "40"
-		},
-		 {
-	
-        "Customer Name": "Z",
-        "Mobile no": "5",
-        "Amount": "80"
-		}
-    ]
-	}
+  "CUSTOMER" : [ {
+    "Amount" : "10",
+    "Mobile no" : "2",
+    "Customer Name" : "X"
+  }, {
+    "Amount" : "40",
+    "Mobile no" : "3",
+    "Customer Name" : "Y"
+  }, {
+    "Amount" : "80",
+    "Mobile no" : "5",
+    "Customer Name" : "Z"
+  } ]
+}

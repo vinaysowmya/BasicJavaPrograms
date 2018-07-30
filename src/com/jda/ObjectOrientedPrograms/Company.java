@@ -1,10 +1,10 @@
 package com.jda.ObjectOrientedPrograms;
 
 public class Company {
-	public double price;
+	public String price;
 	private String name;
-	private int quantity;
-	public Company(String name, double price,  int quantity){
+	private String quantity;
+	public Company(String name, String price,  String quantity){
 		this.price = price;
 		this.name = name;
 		this.quantity = quantity;
@@ -15,11 +15,11 @@ public class Company {
 	{
 		this.name = name;
 	}
-	public void setprice(double price)
+	public void setprice(String price)
 	{
 		this.price = price;
 	}
-	public void setquantity(int quantity)
+	public void setquantity(String quantity)
 	{
 		this.quantity = quantity;
 	}
@@ -28,11 +28,11 @@ public class Company {
 	
 		return name;
 	}
-	public double getprice()
+	public String getprice()
 	{
 		return price;
 	}
-	public int getquantity()
+	public String getquantity()
 	{
 		return quantity;
 	}

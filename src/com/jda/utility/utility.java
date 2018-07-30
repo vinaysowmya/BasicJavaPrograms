@@ -804,6 +804,30 @@ public class utility {
 		     }
 			return amnt;
 	 }
+	 
+	 public void cards(int cnt, String cards[], ArrayList<String> per)
+	 {
+		 while(cnt<9)
+			{
+				int value=(int) ( Math.random() *52);
+				if(cards[value]!=null)
+				{
+					per.add(cards[value]);
+					cards[value]=null;
+					cnt++;
+				}
+				
+			}
+	 }
+	 
+	 public void fill(int i,String rslt[][], ArrayList<String> per)
+	 {
+		 for(int j=0;j<9;j++)
+			{
+				String st=per.get(j);
+				rslt[i][j]=st;
+			}
+	 }
  
 	 
 /*	 public LinkedList<Integer> orderedList(String[] array1,int val)

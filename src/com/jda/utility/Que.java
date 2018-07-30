@@ -37,6 +37,8 @@ public class Que {
      rear = temp;
      }
  }
+ 
+
  public Node dequeue()
  {
      if (front == null)

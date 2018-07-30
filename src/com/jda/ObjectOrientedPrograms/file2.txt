@@ -4,14 +4,6 @@
     "Stock Name" : "X",
     "Stock Price" : "5"
   }, {
-    "price" : 2.0,
-    "name" : "s",
-    "quantity" : 2
-  }, {
-    "No of Shares" : "3",
-    "Stock Name" : "Y",
-    "Stock Price" : "4"
-  }, {
     "No of Shares" : "5",
     "Stock Name" : "Z",
     "Stock Price" : "8"

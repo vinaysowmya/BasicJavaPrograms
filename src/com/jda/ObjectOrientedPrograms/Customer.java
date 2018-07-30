@@ -15,10 +15,10 @@ import com.jda.utility.utility;
 
 public class Customer {
 	
-		public long mobileno;
+		public String mobileno;
 		private String name;
-		private int amount;
-		public Customer(String name, long mobileno,  int amount){
+		private String amount;
+		public Customer(String name, String mobileno,  String amount){
 			this.mobileno = mobileno;
 			this.name = name;
 			this.amount = amount;
@@ -29,11 +29,11 @@ public class Customer {
 		{
 			this.name = name;
 		}
-		public void setprice(long mobileno)
+		public void setmobileno(String mobileno)
 		{
 			this.mobileno = mobileno;
 		}
-		public void setquantity(int amount)
+		public void setamount(String amount)
 		{
 			this.amount = amount;
 		}
@@ -42,11 +42,11 @@ public class Customer {
 		
 			return name;
 		}
-		public double getmobileno()
+		public String getmobileno()
 		{
 			return mobileno;
 		}
-		public int getamount()
+		public String getamount()
 		{
 			return amount;
 		}
@@ -56,6 +56,9 @@ public class Customer {
 			//return String.format(" + "\"No of Shares +" + quantity,name,price,quantity);
 			return "{" + "\"name\":\"" + name + ",\"" + "\"mobileno\":\"" + mobileno + ",\"amount\":\"" + amount + "}";
 		}
+
+
+	
 		
 	
 		

@@ -5,34 +5,37 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 
-public class linkedlist <T >  {
+public class ll <T >  {
 	
-  
-public Node head;
+   public Node head;
   public class Node<S >  {
         S data;
+        S num;
+        S price;
+        
         Node next;
-		public int val;
-          Node(S new_data)
+          Node(S new_data, S num, S price)
         {
         	
         data = new_data;
+        this.num=num;
+        this.price=price;
         next = null;
         }
     }
- public void adds(T data)
+ public void adds(String data, String num, String price)
  {
-     Node new_node = new Node(data);
+     Node new_node = new Node(data,num,price);
      new_node.next = head;
      head = new_node;
  }
  
- public void append(int new_data)
+ public void append(int new_data,int num, int price)
  {
-        Node new_node = new Node(new_data);
+        Node new_node = new Node(new_data, num, price);
         if (head == null)
         {
-            head = new Node(new_data);
+            head = new Node(new_data,num,price);
             return;
         }
         new_node.next = null;
@@ -47,7 +50,6 @@ public Node head;
 
  public void printList()
  {
-	
 		Node tnode = head;
         while (tnode != null)
         {
@@ -82,7 +84,7 @@ public boolean search(T x)
     return false;   
 }
 public void removeElements(T val) {
-    Node helper = new Node(0);
+    Node helper = new Node(0,0,0);
     helper.next = head;
     Node p = helper;
  
@@ -96,13 +98,10 @@ public void removeElements(T val) {
     }
 }
 
-
-
-
-public void sortedInsert(T data)
+public void sortedInsert(T data, T num, T price)
 {
      Node current;
-     Node new_node = new Node(data);
+     Node new_node = new Node(data,num,price);
      if (head == null ||( head.data.toString().compareTo(new_node.data.toString()))<=0)
      {
     	 new_node.next = head;
@@ -133,75 +132,6 @@ public <T extends Comparable<T>> void inputToFile() throws IOException
 	     
 	    writer.close();
 } 
-
-public void fun()
-{
-	head=mergeSort(head);
-	printList();
-}
-
-public Node mergeSort(Node h) 
-{
-
-   
-    if (h == null || h.next == null)
-    {
-        return h;
-    }
-    Node middle = getMiddle(h);
-    Node nextofmiddle = middle.next;
-
-    middle.next = null;
-    Node left = mergeSort(h);
-    Node right = mergeSort(nextofmiddle);
-
-   
-    Node sortedlist = sortedMerge(left, right);
-    return sortedlist;
-}
-
-
-public Node getMiddle(Node h) 
-{
-    
-    if (h == null)
-        return h;
-    Node fastptr = h.next;
-    Node slowptr = h;
-    
-    while (fastptr != null)
-    {
-        fastptr = fastptr.next;
-        if(fastptr!=null)
-        {
-            slowptr = slowptr.next;
-            fastptr=fastptr.next;
-        }
-    }
-    return slowptr;
-}
-Node sortedMerge(Node a, Node b) 
-{
-    Node result = null;
-   
-    if (a == null)
-        return b;
-    if (b == null)
-        return a;
-
-    if ( a.data.toString().compareTo(b.data.toString())<=0) 
-    {
-        result = a;
-        result.next = sortedMerge(a.next, b);
-    } 
-    else
-    {
-        result = b;
-        result.next = sortedMerge(a, b.next);
-    }
-    return result;
-
-}
 
 
 }
