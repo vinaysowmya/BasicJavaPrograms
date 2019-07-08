@@ -8,7 +8,7 @@ public class Nibble {
 		utility util=new utility();
 		System.out.println("Enter the number");
 		int num=util.inputInteger();
-		int value=util.nibble(num);
+		double value=util.nibble(num);
 		System.out.println(value);
 		boolean rslt=util.powOfTwo(value);
 		if(rslt)

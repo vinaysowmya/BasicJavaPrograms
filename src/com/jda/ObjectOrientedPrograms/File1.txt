@@ -1,0 +1,19 @@
+{
+   "name":"So",
+   
+    "Rice": [
+        "Rice: Name=Brown Rice",
+        "Rice: Weight=2kg",
+        "Rice: pricePerKg=5rs"
+    ]
+	 "Pulses": [
+        "Pulses: Name=Black Gram",
+        "Pulses: Weight=3kg",
+        "Pulses: pricePerKg=10rs"
+    ]
+	 "Wheat": [
+        "Wheat: Name=Wheat",
+        "Wheat: Weight=5kg",
+        "Wheat: pricePerKg=15rs"
+    ]
+}
